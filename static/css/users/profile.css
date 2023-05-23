@@ -1,0 +1,118 @@
+body {
+    font-family: 'Jua', sans-serif;
+}
+
+li {
+    list-style: none;
+}
+
+.header-nav {
+    background-color: rgb(200, 200, 200);
+    display: flex;
+    justify-content: space-between;
+    margin: 18px;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.header-nav button {
+    font-family: inherit;
+    font-size: 18px;
+    border: none;
+    background-color: inherit;
+    border-radius: 8px;
+    text-align: center;
+    padding: 4px 8px 2px 8px;
+}
+
+.header-nav button:hover {
+    background-color: aliceblue;
+}
+
+.profile_container {
+    display: flex;
+}
+
+.user_profile {
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    margin: 18px;
+    padding: 12px;
+}
+
+.user_profile img {
+    width: 256px;
+
+    border-radius: 8px;
+}
+
+.user_profile p {
+    font-size: 24px;
+}
+
+.user_profile button {
+    font-family: inherit;
+    font-size: 18px;
+    background-color: inherit;
+    border-radius: 8px;
+    text-align: center;
+    padding: 4px 8px 2px 8px;
+}
+
+.user_profile button:hover {
+    background-color: aliceblue;
+}
+
+.articles_container {
+    width: 100%;
+    margin: 18px;
+    padding: 12px;
+}
+
+.articles {
+    padding-bottom: 18px;
+    border: 1px solid rgb(184, 184, 184);
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.articles_logo {
+    margin: 12px;
+    padding: 8px;
+    padding-top: 18px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.user_articles {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20%, auto));
+    grid-template-rows: repeat(auto-fill, minmax(120px, auto));
+
+}
+
+.article-container {
+    background-color: aquamarine;
+    margin: 12px;
+    padding: 8px;
+    height: 140px;
+    border: 1px solid rgb(184, 184, 184);
+    border-radius: 8px;
+}
+
+.follows {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15%, auto));
+    grid-template-rows: repeat(auto-fill, minmax(12px, auto));
+}
+
+.follows p {
+
+    border: 1px solid rgb(184, 184, 184);
+    border-radius: 8px;
+    padding: 4px 8px;
+    text-align: center;
+    margin-right: 8px;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <!-- css -->
+    <link rel="stylesheet" href="/static/css/users/profile.css">
+    <!-- js -->
+    <script src="/static/js/users/profile.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header class="header-nav">
+        <button type="button">로고</button>
+        <div>
+            <button>🔎</button>
+            <button>글쓰기</button>
+            <button>마이 페이지</button>
+        </div>
+    </header>
+    <main class="profile_container">
+        <section class="user_profile">
+            <img alt="profile_image" id="profile_image">
+            <div>
+                <p id="email"></p>
+                <button type="button" id="follow_button"></button>
+            </div>
+        </section>
+
+        <section class="articles_container">
+            <div class="articles">
+                <p class="articles_logo">내가 작성한 게시글</p>
+                <ul id="user_articles" class="user_articles"></ul>
+            </div>
+            <div class="articles">
+                <p class="articles_logo">내가 좋아요한 게시글</p>
+                <ul id="user_like_articles" class="user_articles">
+                    
+                </ul>
+            </div>
+            <div>
+                <details>
+                    <summary>팔로우 보기</summary>
+                    <div id="follows" class="follows"></div>
+                </details>
+            </div>
+        </section>
+    </main>
+    
+   
+
+</body>
+</html>
