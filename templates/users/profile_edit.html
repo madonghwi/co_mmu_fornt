@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <!-- css -->
+    <link rel="stylesheet" href="/static/css/users/profile.css">
+    <!-- js -->
+    <script src="/static/js/users/profile.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header class="header-nav">
+        <button type="button">로고</button>
+        <div>
+            <button>🔎</button>
+            <button>글쓰기</button>
+            <button onclick="myPage()">마이 페이지</button>
+        </div>
+    </header>
+    <main>
+        <div class="edit_container">
+            <section class="edit_profile">
+                <img alt="profile_image" id="profile_image">
+                <p  id="email"></p>
+            </section>
+            <form class="edit_profile_input">
+                <div>
+                    <label>프로필 이미지 변경 키워드 입력 : </label>
+                    <input type="text" name="" id="profile_keyword">
+                </div>
+                <div class="edit_profile_btn">
+                    <button type="button" onclick="profileEdit()">수정하기</button>
+                    <button type="button" onclick="history.back()">뒤로가기</button>
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

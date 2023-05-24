@@ -27,5 +27,5 @@ async function handleLogin() {
 
     localStorage.setItem("payload", jsonPayload);
     // 로그인 후 이동 경로 수정 필요
-    location.href = '/tamplates/users/profile.html';
+    location.href = '/templates/users/profile.html';
 }
