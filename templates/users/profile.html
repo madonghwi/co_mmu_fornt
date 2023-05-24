@@ -11,6 +11,7 @@
     <!-- css -->
     <link rel="stylesheet" href="/static/css/users/profile.css">
     <!-- js -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="/static/js/users/profile.js"></script>
     <title>Document</title>
 </head>
@@ -20,7 +21,7 @@
         <div>
             <button>🔎</button>
             <button>글쓰기</button>
-            <button>마이 페이지</button>
+            <button onclick="myPage()">마이 페이지</button>
         </div>
     </header>
     <main class="profile_container">
@@ -28,7 +29,7 @@
             <img alt="profile_image" id="profile_image">
             <div>
                 <p id="email"></p>
-                <button type="button" id="follow_button"></button>
+                <button type="button" id="follow_button"  onclick="userFollow()"></button>
             </div>
         </section>
 
@@ -49,10 +50,13 @@
                     <div id="follows" class="follows"></div>
                 </details>
             </div>
+            <div class="profile_btn">
+                <a id="profile_edit_page">
+                    <button id="profile_edit_btn" type="button" style="display:none;">수정하기</button>
+                </a>
+                <button type="button" class="back_btn" onclick="history.back()">뒤로가기</button>
+            </div>
         </section>
     </main>
-    
-   
-
 </body>
 </html>
