@@ -181,6 +181,10 @@ a {
     width: 70%;
 }
 
+.edit_profile_image {
+    margin-bottom: 12px;
+}
+
 .edit_profile_btn {
     display: flex;
     justify-content: flex-end;
