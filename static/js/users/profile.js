@@ -15,7 +15,12 @@ window.onload = async function loadProfile() {
 
     // 유저 프로필 보기
     const profile_image = document.getElementById("profile_image")
-    profile_image.setAttribute("src", response_json["가입정보"]["profile_image_url"])
+    if (response_json["가입정보"]["profile_image_image"]===null) {
+        profile_image.setAttribute("src", response_json["가입정보"]["profile_image_url"])
+    }
+    else {
+        profile_image.src = 'http://127.0.0.1:8000' + response_json["가입정보"]['profile_image_image']
+    }
 
     const email = document.getElementById("email")
     email.innerText = response_json["가입정보"]["email"]
@@ -66,7 +71,7 @@ window.onload = async function loadProfile() {
         profile_edit_btn.setAttribute("style", "display:block")
 
         const profile_edit_page = document.getElementById("profile_edit_page")
-        profile_edit_page.setAttribute("href", `../users/profile_edit.html`)
+        profile_edit_page.setAttribute("href", `../users/profile_edit.html?id=${user_id}`)
     }
 
     // 팔로우 버튼을 위한 시작
@@ -98,7 +103,7 @@ window.onload = async function loadProfile() {
 async function myPage() {
     const user = localStorage.getItem("payload")
     const user_id = user.split(':')[5].slice(0, -1);
-    
+
     location.href = `../users/profile.html?id=${user_id}`
 }
 
@@ -127,10 +132,25 @@ function userFollow() {
     })
 }
 
+// 미리보기 기능
+function preview(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById("profile_image").src = e.target.result;
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+    else {
+        document.getElementById("profile_image").src = "";
+    }
+}
+
 //수정하기 기능
 async function profileEdit() {
     const user = localStorage.getItem("payload")
     const user_id = user.split(':')[5].slice(0, -1);
+    console.log(user_id)
 
     const response = await fetch('http://127.0.0.1:8000/users/profile/'+user_id+'/', {
         method:"GET"
@@ -138,19 +158,107 @@ async function profileEdit() {
     response_json = await response.json()
     console.log(response_json)
 
+    const email = response_json["가입정보"]["email"]
+    const password = response_json["가입정보"]["password"]
     const profile_keyword = document.getElementById("profile_keyword").value;
-    
-    const response_edit = await fetch('http://127.0.0.1:8000/users/profile/'+user_id+'/', {
-        headers:{
-            'Authorization': 'Bearer ' + localStorage.getItem("access"),
-            'content-type':'application/json',
-        },
-        method:"PUT",
-        body: JSON.stringify({
-            "email":response_json["가입정보"]["email"],
-            "password":response_json["가입정보"]["password"],
-            "profile_image":profile_keyword
+    const profile_image = document.getElementById("profile_image").src;
+
+    // 파일이 있다.
+    if (response_json["가입정보"]["profile_image_image"]) {
+        console.log("파일 있음")
+        if ('http://127.0.0.1:8000' + response_json["가입정보"]['profile_image_image']!==profile_image && profile_keyword!=='') {
+            alert("이미지 파일 또는 키워드 둘 중에 하나만 입력해주세요.")
+        }
+        else if('http://127.0.0.1:8000' + response_json["가입정보"]['profile_image_image']===profile_image && profile_keyword!=='') {
+            console.log("파일 있는 경우 글씨만 넣었을때")
+            const response_edit = await fetch('http://127.0.0.1:8000/users/profile/'+user_id+'/', {
+            headers:{
+                'Authorization': 'Bearer ' + localStorage.getItem("access"),
+                'content-type':'application/json',
+            },
+            method:"PUT",
+            body: JSON.stringify({
+                "email":email,
+                "password":password,
+                "profile_image":profile_keyword,
+                "profile_image_image":''
+            })
         })
-    })
-    location.href = `../users/profile.html?id=${user_id}`
+        console.log("--------------------")
+        console.log(response_edit.json())
+        location.href = `../users/profile.html?id=${user_id}`
+        }
+        else if('http://127.0.0.1:8000' + response_json["가입정보"]['profile_image_image']!==profile_image && profile_keyword==='') {
+            console.log("파일 있는 경우 사진만 넣었을때")
+            const response_edit = await fetch('http://127.0.0.1:8000/users/profile/'+user_id+'/', {
+            headers:{
+                'Authorization': 'Bearer ' + localStorage.getItem("access"),
+                'content-type':'application/json',
+            },
+            method:"PUT",
+            body: JSON.stringify({
+                "email":email,
+                "password":password,
+                "profile_image":'',
+                "profile_image_image":profile_image
+            })
+        })
+        console.log("--------------------")
+        console.log(response_edit.json())
+        location.href = `../users/profile.html?id=${user_id}`
+        }
+        else {
+            alert("입력되지 않았습니다. 취소하시려면 뒤로가기 버튼을 눌러주세요.")
+        }
+    }
+    // 파일 없다.
+    else {
+        console.log("파일 없다.")
+        if (response_json["가입정보"]['profile_image_url']!==profile_image && profile_keyword!=='') {
+            alert("이미지 파일 또는 키워드 둘 중에 하나만 입력해주세요.")
+        }
+        else if(response_json["가입정보"]['profile_image_url']===profile_image && profile_keyword!=='') {
+            console.log("파일 없는 경우 글씨만 넣었을때")
+            const response_edit = await fetch('http://127.0.0.1:8000/users/profile/'+user_id+'/', {
+            headers:{
+                'Authorization': 'Bearer ' + localStorage.getItem("access"),
+                'content-type':'application/json',
+            },
+            method:"PUT",
+            body: JSON.stringify({
+                "email":email,
+                "password":password,
+                "profile_image":profile_keyword,
+                "profile_image_image":''
+            })
+        })
+        console.log("--------------------")
+        console.log(response_edit.json())
+        location.href = `../users/profile.html?id=${user_id}`
+        }
+        else if(response_json["가입정보"]['profile_image_url']!==profile_image && profile_keyword==='') {
+            console.log("파일 없는 경우 사진만 넣었을때")
+            const response_edit = await fetch('http://127.0.0.1:8000/users/profile/'+ user_id +'/', {
+            headers:{
+                'Authorization': 'Bearer ' + localStorage.getItem("access"),
+                'content-type':'application/json',
+            },
+            method:"PUT",
+            body: JSON.stringify({
+                "email":email,
+                "password":password,
+                "profile_image":'',
+                "profile_image_image":profile_image
+            })
+        })
+        console.log("--------------------")
+        console.log(response_edit.json())
+        location.href = `../users/profile.html?id=${user_id}`
+        }
+        else {
+            alert("입력되지 않았습니다. 취소하시려면 뒤로가기 버튼을 눌러주세요.")
+        }
+    }
+
+
 }
