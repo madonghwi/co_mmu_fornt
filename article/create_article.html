@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <html data-theme="light">
+    <script src="assets/js/create_article.js"></script>
+    </html>
+</head>
+
+<body>
+    <div>
+        <nav>
+            <ul>
+                <li><strong>로고</strong></li>
+            </ul>
+            <ul>
+                <li><a href="#">검색</a></li>
+                <li><a href="#">글쓰기</a></li>
+                <li><a href="#">마이페이지</a></li>
+            </ul>
+        </nav>
+    </div>
+    <hr>
+
+
+    <div style="width: 800px; margin: 50px auto;">
+        <form>
+            <p>글쓰기</p>
+            <input id="title" type="text" placeholder="제목">
+            <input id="image" type="file">
+            <textarea id="content" rows="10" placeholder="내용"></textarea>
+            <div style="width: 800px; text-align: right;">
+                <button onclick="handlearticle()" style="width: 200px; display :inline-block;">게시하기</button>
+                <button style="width: 200px; display :inline-block;">돌아가기</button>
+            </div>
+        </form>
+
+
+    </div>
+</body>
+
+</html>
