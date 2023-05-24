@@ -6,6 +6,11 @@ li {
     list-style: none;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .header-nav {
     background-color: rgb(200, 200, 200);
     display: flex;
@@ -43,7 +48,6 @@ li {
 
 .user_profile img {
     width: 256px;
-
     border-radius: 8px;
 }
 
@@ -109,10 +113,86 @@ li {
 }
 
 .follows p {
-
     border: 1px solid rgb(184, 184, 184);
     border-radius: 8px;
     padding: 4px 8px;
     text-align: center;
     margin-right: 8px;
+}
+
+.profile_btn {
+    display: flex;
+    justify-content: end;
+    margin: 12px;
+}
+
+.profile_btn button {
+    font-family: inherit;
+    font-size: 18px;
+    background-color: inherit;
+    border-radius: 8px;
+    text-align: center;
+    padding: 4px 8px 2px 8px;
+}
+
+.profile_btn button:hover {
+    background-color: rgb(53, 154, 243);
+    color: aliceblue;
+}
+
+.back_btn {
+    margin-left: 18px;
+}
+
+/* 프로필 수정하기 css */
+.edit_container {
+    border: 2px solid rgb(184, 184, 184);
+    border-radius: 8px;
+    margin: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+.edit_profile {
+    display: flex;
+    justify-content: center;
+}
+
+.edit_profile img {
+    width: 424px;
+    border-radius: 8px;
+    margin: 30px;
+}
+
+.edit_profile p {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-left: 40px;
+    font-size: 45px;
+}
+
+.edit_profile_input {
+    display: flex;
+    flex-direction: column;
+    margin: 18px 250px;
+}
+
+.edit_profile_input input {
+    width: 70%;
+}
+
+.edit_profile_btn {
+    display: flex;
+    justify-content: flex-end;
+    margin: 18px;
+}
+
+.edit_profile_btn button {
+    font-family: inherit;
+    font-size: 18px;
+    background-color: inherit;
+    border-radius: 8px;
+    text-align: center;
+    padding: 4px 8px 2px 8px;
+    margin-left: 18px;
 }
