@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Main Page</title>
+    <style>
+        /* 게시글 상자와 섬네일 이미지에 적용할 스타일 */
+        .article-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 20px;
+            justify-items: center;
+        }
+
+        .article-box {
+            width: 100%;
+            max-width: 250px;
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .article-box img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .article-box h2 {
+            margin-top: 0;
+        }
+
+        .article-box p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Main Page</h1>
+
+    <div class="article-container" id="articles-container">
+        <!-- 동적으로 게시글이 채워질 영역 -->
+    </div>
+
+    <script>
+        // 백엔드에서 게시글을 가져와서 템플릿에 채우는 함수
+        fetch('/articles/')
+            .then(response => response.json())
+            .then(data => {
+                const articlesContainer = document.getElementById('articles-container');
+                data.forEach(article => {
+                    const articleBox = document.createElement('div');
+                    articleBox.className = 'article-box';
+
+                    if (article.thumbnail) {
+                        const thumbnailImage = document.createElement('img');
+                        thumbnailImage.src = article.thumbnail;
+                        thumbnailImage.alt = '게시글 섬네일';
+                        articleBox.appendChild(thumbnailImage);
+                    }
+
+                    const title = document.createElement('h2');
+                    title.textContent = article.title;
+                    articleBox.appendChild(title);
+
+                    const content = document.createElement('p');
+                    content.textContent = article.content;
+                    articleBox.appendChild(content);
+
+                    const author = document.createElement('p');
+                    author.textContent = '작성자: ' + article.author;
+                    articleBox.appendChild(author);
+
+                    const createdAt = document.createElement('p');
+                    createdAt.textContent = '작성일: ' + article.created_at;
+                    articleBox.appendChild(createdAt);
+
+                    articlesContainer.appendChild(articleBox);
+                });
+            })
+            .catch(error => {
+                console.error('게시글을 가져오는 중 오류 발생:', error);
+            });
+    </script>
+</body>
+</html>
