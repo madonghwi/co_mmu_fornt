@@ -11,29 +11,6 @@ a {
     color: inherit;
 }
 
-.header-nav {
-    background-color: rgb(200, 200, 200);
-    display: flex;
-    justify-content: space-between;
-    margin: 18px;
-    padding: 12px;
-    border-radius: 8px;
-}
-
-.header-nav button {
-    font-family: inherit;
-    font-size: 18px;
-    border: none;
-    background-color: inherit;
-    border-radius: 8px;
-    text-align: center;
-    padding: 4px 8px 2px 8px;
-}
-
-.header-nav button:hover {
-    background-color: aliceblue;
-}
-
 .profile_container {
     display: flex;
 }
@@ -94,7 +71,6 @@ a {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(20%, auto));
     grid-template-rows: repeat(auto-fill, minmax(120px, auto));
-
 }
 
 .user_article_container {
