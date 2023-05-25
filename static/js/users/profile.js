@@ -43,7 +43,7 @@ window.onload = async function loadProfile() {
     const user_like_articles = document.getElementById("user_like_articles")
     response_json["좋아요 게시글"].forEach(art => {
         const user_article = document.createElement("li")
-        user_article.setAttribute("class", "article-container")
+        user_article.setAttribute("class", "user_article_container")
         const user_article_title = document.createElement("p")
         user_article_title.innerText = art['title']
         const user_article_content = document.createElement("p")
