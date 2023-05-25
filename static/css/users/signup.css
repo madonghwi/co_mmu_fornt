@@ -1,7 +1,17 @@
+.title{
+    text-align: center;
+    font-size: xx-large;
+}
 
+.label {
+    display: block;
+    margin-bottom: 10px;
+  }
 
 .signup-container {
-    max-width: 400px;
+    max-width: 35vw;
+    display: grid;
+    place-items: center;
     margin: 0 auto;
   }
   
