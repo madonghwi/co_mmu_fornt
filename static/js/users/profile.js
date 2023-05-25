@@ -99,14 +99,6 @@ window.onload = async function loadProfile() {
     }
 }
 
-// 마이페이지 이동
-async function myPage() {
-    const user = localStorage.getItem("payload")
-    const user_id = user.split(':')[5].slice(0, -1);
-
-    location.href = `../users/profile.html?id=${user_id}`
-}
-
 // ajax를 이용한 팔로우 기능 추가
 function userFollow() {
     const urlParams = new URL(location.href).searchParams;

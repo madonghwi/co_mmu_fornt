@@ -1,5 +1,27 @@
 const backend_base_url = "http://127.0.0.1:8000"
 
+window.onload = function onLoad() {
+    var id_focus = document.getElementById("email");
+    id_focus.onfocus = function() {
+        const id_cell = document.getElementById("id_cell")
+        id_cell.setAttribute("class", "bi bi-person-fill")
+    }
+    id_focus.onblur = function() {
+        const id_cell = document.getElementById("id_cell")
+        id_cell.setAttribute("class", "bi bi-person")
+    }
+
+    var password_focus = document.getElementById("password");
+    password_focus.onfocus = function() {
+        const password_cell = document.getElementById("password_cell")
+        password_cell.setAttribute("class", "bi bi-lock-fill")
+    }
+    password_focus.onblur = function() {
+        const password_cell = document.getElementById("password_cell")
+        password_cell.setAttribute("class", "bi bi-lock")
+    }
+}
+
 async function handleLogin() {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
@@ -27,5 +49,5 @@ async function handleLogin() {
 
     localStorage.setItem("payload", jsonPayload);
     // 로그인 후 이동 경로 수정 필요
-    location.href = '/templates/users/profile.html';
+    location.href = '/templates/main.html';
 }
