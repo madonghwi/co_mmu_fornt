@@ -5,41 +5,65 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <html data-theme="light">
-    <script src="assets/js/detail_article.js"></script>
-    </html>
+    <!-- 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <!-- 아이콘 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+    <!-- css -->
+    <link rel="stylesheet" href="/static/css/nav.css">
+    <link rel="stylesheet" href="/static/css/article/detail_article.css">
+    <!-- js -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="/static/js/article/detail_article.js"></script>
     <title>Document</title>
    
 </head>
 
 <body>
-    <div>
-        <nav>
-            <ul>
-                <li><strong>로고</strong></li>
-            </ul>
-            <ul>
-                <li><a href="#">검색</a></li>
-                <li><a href="#">글쓰기</a></li>
-                <li><a href="#">마이페이지</a></li>
-            </ul>
-        </nav>
-    </div>
-    <hr>
-    <div style="width: 1200px; margin: auto;">
-        <div id="show_article">
-        </div>
-        <div>
-            <input type="text" id="comment">
-            <button onclick="handlecomment()">댓글 작성하기</button>
+    <header></header>
+    <main>
+        <section class="articles_container">
+            <div id="article_image" class="article_image"></div>
+            <div class="article_text">
+                <div class="article_title">
+                    <div class="article_title_section">
+                        <h3>제목 : </h3>
+                        <p id="article_title"></p>
+                    </div>
+                    <div>
+                        <p id="article_author"></p>
+                    </div>
+                </div>
+                <div class="article_content_likes">
+                    <div class="article_content">
+                        <h3>내용 : </h3>
+                        <p id="article_content"></p>
+                    </div>
+                    <div class="article_like">
+                        <p id="article_likes_count"></p>
+                        <button type="button" onclick="handleLike()"><i class="bi bi-balloon-heart" id="likes_button_icon"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="comment_form">
+                <input type="text" id="comment">
+                <button type="button" onclick="handlecomment()">댓글 작성하기</button>
+            </div>
+        </section>
+        <hr>
+        <section>
+            <div class="comment_views">
+                <p id="comment_count"></p>
+            </div>
+            <ul id="comments"></ul>
+        </section>
+    </main>
 
-        </div>
-        <div id="show_comments">
-        </div>
-    </div>
 
 </body>
-
+<script src="/static/js/nav.js"></script>
 </html>
