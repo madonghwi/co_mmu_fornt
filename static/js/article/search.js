@@ -1,5 +1,10 @@
 window.onload = async function loadMainPage() {
-    const response = await fetch('http://127.0.0.1:8000/articles/', {
+    const urlParams = new URL(location.href).searchParams;
+    const search = urlParams.get('search');
+
+    console.log(search)
+
+    const response = await fetch('http://127.0.0.1:8000/articles/search/?search='+ search, {
         method:"GET"
     })
     response_json = await response.json()
@@ -21,7 +26,7 @@ window.onload = async function loadMainPage() {
 
         if (article['image']!==null) {
             const articles_img = document.createElement('img')
-            articles_img.setAttribute("src", 'http://127.0.0.1:8000'+article['image'])
+            articles_img.setAttribute("src", article['image'])
             articles_a.appendChild(articles_img)
         }
 

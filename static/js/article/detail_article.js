@@ -171,6 +171,7 @@ function handleLike() {
     const urlParams = new URL(location.href).searchParams;
     const profile_id = urlParams.get('id');
     const likes_button_icon = document.getElementById("likes_button_icon")
+    const article_likes_count = document.getElementById("article_likes_count")
 
     $.ajax({
         url : 'http://127.0.0.1:8000/articles/likes/'+profile_id+'/',
@@ -179,15 +180,19 @@ function handleLike() {
             'Authorization': 'Bearer ' + localStorage.getItem("access"),
         },
         success: function(data) {
-            if(data === "like") {
+
+            if(data["result"] === "like") {
                 likes_button_icon.setAttribute("class", "bi bi-balloon-heart-fill")
                 likes_button_icon.setAttribute("style", "color:red;")
                 console.log(data)
             }
             else {
                 likes_button_icon.setAttribute("class", "bi bi-balloon-heart")
+                likes_button_icon.setAttribute("style", "color:black;")
                 console.log(data)
             }
+            article_likes_count.innerText = `좋아요 ${data['count']}개`
         }
-    })
+    });
+    
 }
