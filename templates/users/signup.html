@@ -4,22 +4,30 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 폰트 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+  <!-- css -->
   <link rel="stylesheet" href="/static/css/users/signup.css">
-  <link rel="stylesheet" href="/static/css/users/nav.css">
+  <!-- js -->  
   <script src="/static/js/nav.js"></script>
   <script src="/static/js/users/signup.js"></script>
   <script src="/static/js/users/api.js"></script>
   <title>회원가입</title>
 <body>
 <header></header>
+<h1 class="title">회원가입</h1>
 <div class="signup-container">
+  <label class="label">회원정보 입력</label>
   <input type="email" class="signup-input" id="email" placeholder="이메일">
   <input type="password" class="signup-input" id="password" placeholder="비밀번호">
   <input type="password" class="signup-input" id="password-check" placeholder="비밀번호 확인">
-  <input type="image_keyword" class="signup-input" id="image_keyword" placeholder="이미지 키워드">
-  <button class="signup-button" onclick="handleSignup()">회원가입</button>
-  <div class="already">
-    <a href="/users/login.html" class="link-success">이미 계정이 있다면?</a>
+  <label class="label">입력하신 단어에 맞춰 프로필 이미지를 만들어드려요 ex)고양이,강아지</label>
+  <input type="text" class="signup-input" id="profile_image">
+  <button class="signup-button" onclick="handleSignup()">가입하기</button>
+  <div>
+    <a href="/templates/users/login.html" class="link-success">로그인 하러가기</a>
 </div>
 </div>
 </body>
