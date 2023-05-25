@@ -14,32 +14,35 @@
     <!-- css -->
     <link rel="stylesheet" href="/static//css/nav.css">
     <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/article/create_article.css">
     <!-- js -->
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="/static/js/article/create_article.js"></script>
     <title>글쓰기</title>
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"> -->
+   
 </head>
 
 <body>
     <header></header>
-    <div style="width: 800px; margin: 50px auto;">
+    <div style="width: 1200px; margin: 50px auto;">
         <form>
-            <p>글쓰기</p>
-            <input id="title" type="text" placeholder="제목">
-            <div>
-                <img alt="" id="article_image">
-                <input type="file" onchange="preview(this)">
+            <h3>글쓰기</h3>
+            <div class="warp">
+                <input class="title_input" id="title" type="text" placeholder="제목">
+                <img alt="" id="article_image" style="width: 500px; margin-top: 10px;">
+                <input type="file" onchange="preview(this)" style="margin-top: 10px;">
+                <textarea class="content_textarea" id="content" rows="10" placeholder="내용"
+                    style="width: 800px;"></textarea>
             </div>
-            <textarea id="content" rows="10" placeholder="내용"></textarea>
-            <div style="width: 800px; text-align: right;">
-                <button type="button" onclick="handlearticle()" style="width: 200px; display :inline-block;">게시하기</button>
-                <button style="width: 200px; display :inline-block;">돌아가기</button>
+            <div style="width: 825px; text-align: right; margin-top: 10px;">
+                <button class="create_article_button" type="button" onclick="handlearticle()"
+                    style="width: 200px; display :inline-block;">게시하기</button>
+                <button class="create_article_button" style="width: 200px; display :inline-block;">돌아가기</button>
             </div>
         </form>
-
-
     </div>
 </body>
 <script src="/static/js/nav.js"></script>
+
 </html>
