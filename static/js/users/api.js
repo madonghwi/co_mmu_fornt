@@ -2,10 +2,11 @@ const frontend_base_url = "http://127.0.0.1:5500"
 const backend_base_url = "http://127.0.0.1:8000"
 
 // 회원가입
-async function handleSignin() {
+async function handleSignup() {
     const email = document.getElementById("email").value
     const password = document.getElementById("password").value
     const passwordCheck = document.getElementById("password-check").value
+    const image_keyword = document.getElementById("profile_image").value
 
     const response = await fetch(`${backend_base_url}/users/signup/`, {
         headers: {
@@ -16,6 +17,7 @@ async function handleSignin() {
             "email": email,
             "password1": password,
             "password2": passwordCheck,
+            "profile_image": image_keyword,
         })
     })
 

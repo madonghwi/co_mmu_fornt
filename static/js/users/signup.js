@@ -1,5 +1,5 @@
-async function handleSigninButton() {
-    const response = await handleSignin();
+async function handleSignupButton() {
+    const response = await handleSignup();
     if (response.status == 201) {
         alert("회원가입 완료")
         window.location.replace(`${frontend_base_url}/users/login.html`)
