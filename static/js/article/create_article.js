@@ -1,20 +1,36 @@
-async function handlearticle() {
-    const title = document.getElementById("title").value
-    const image = document.getElementById("image").files[0]
-    const content = document.getElementById("content").value
+// 미리보기 기능
+function preview(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById("article_image").src = e.target.result;
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+    else {
+        document.getElementById("article_image").src = "";
+    }
+}
 
-    const formData = new FormData();
-    formData.append("title", title);
-    formData.append("image", image);
-    formData.append("content", content);
+
+async function handlearticle() {
+    const title = document.getElementById("title").value;
+    const image = document.getElementById("article_image").src;
+    const content = document.getElementById("content").value;
 
     const response = await fetch('http://127.0.0.1:8000/articles/', {
         headers: {
-            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg0OTM1ODA5LCJpYXQiOjE2ODQ4OTI2MDksImp0aSI6IjQ4NGZjYmYwYzI3NDQxOTBiYWRlMzFmMzE2OWRkOTc0IiwidXNlcl9pZCI6Mn0.lsdgQjCtlTpsbycg5LnG8wJzZ7wTzdAzY_yFyt-PGFE"
-            // "Authorization": "Bearer " + localStorage.getItem("access")
+            "Authorization": "Bearer " + localStorage.getItem("access"),
+            'content-type':'application/json', 
         },
         method: 'POST',
-        body: formData
+        body: JSON.stringify({
+            "title": title,
+            "content": content,
+            "image":image
+        })
     })
 
+    location.href = '/templates/main.html';
 }
+

@@ -29,13 +29,25 @@ window.onload = async function loadProfile() {
     const user_articles = document.getElementById("user_articles")
     response_json["게시글"].forEach(art => {
         const user_article = document.createElement("li")
-        user_article.setAttribute("class", "article-container")
-        const user_article_title = document.createElement("p")
+        const user_article_a = document.createElement("a")
+        user_article_a.setAttribute("href", `/templates/article/detail_article.html?id=${art['id']}`)
+        user_article_a.setAttribute("class", "article_container")
+        user_article.appendChild(user_article_a)
+        user_article.setAttribute("class", "article_card")
+
+        const user_article_title = document.createElement("h3")
         user_article_title.innerText = art['title']
         const user_article_content = document.createElement("p")
         user_article_content.innerText = art['content']
-        user_article.appendChild(user_article_title)
-        user_article.appendChild(user_article_content)
+
+        if (art['image']!==null) {
+            const articles_img = document.createElement('img')
+            articles_img.setAttribute("src", 'http://127.0.0.1:8000'+art['image'])
+            user_article_a.appendChild(articles_img)
+        }
+
+        user_article_a.appendChild(user_article_title)
+        user_article_a.appendChild(user_article_content)
         user_articles.appendChild(user_article)
     })
 
@@ -43,13 +55,25 @@ window.onload = async function loadProfile() {
     const user_like_articles = document.getElementById("user_like_articles")
     response_json["좋아요 게시글"].forEach(art => {
         const user_article = document.createElement("li")
-        user_article.setAttribute("class", "user_article_container")
-        const user_article_title = document.createElement("p")
+        const user_article_a = document.createElement("a")
+        user_article_a.setAttribute("href", `/templates/article/detail_article.html?id=${art['id']}`)
+        user_article_a.setAttribute("class", "article_container")
+        user_article.appendChild(user_article_a)
+        user_article.setAttribute("class", "article_card")
+
+        const user_article_title = document.createElement("h3")
         user_article_title.innerText = art['title']
         const user_article_content = document.createElement("p")
         user_article_content.innerText = art['content']
-        user_article.appendChild(user_article_title)
-        user_article.appendChild(user_article_content)
+
+        if (art['image']!==null) {
+            const articles_img = document.createElement('img')
+            articles_img.setAttribute("src", 'http://127.0.0.1:8000'+art['image'])
+            user_article_a.appendChild(articles_img)
+        }
+
+        user_article_a.appendChild(user_article_title)
+        user_article_a.appendChild(user_article_content)
         user_like_articles.appendChild(user_article)
     })
 
@@ -97,14 +121,6 @@ window.onload = async function loadProfile() {
         follow_button.innerText = "팔로우"
         console.log("팔로우")
     }
-}
-
-// 마이페이지 이동
-async function myPage() {
-    const user = localStorage.getItem("payload")
-    const user_id = user.split(':')[5].slice(0, -1);
-
-    location.href = `../users/profile.html?id=${user_id}`
 }
 
 // ajax를 이용한 팔로우 기능 추가

@@ -1,0 +1,49 @@
+.warp {
+    display: flex;
+    flex-direction: column;
+}
+
+.title_input {
+    height: 30px;
+    width: 50%;
+    font-size: 25px;
+    font-family: inherit;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.content_textarea {
+    margin-top: 10px;
+    width: 50%;
+    font-size: 15px;
+    font-family: inherit;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.create_article_button {
+    height: 58px;
+    margin-left: 20px;
+    background-color: inherit;
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 25px;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+}
+
+.create_article_button:hover {
+    cursor: pointer;
+    background-color: antiquewhite;
+}
+
+.article_like {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+}
