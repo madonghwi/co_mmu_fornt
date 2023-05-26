@@ -11,7 +11,6 @@ window.onload = async function loadProfile() {
         method:"GET"
     })
     response_json = await response.json()
-    console.log(response_json)
 
     // 유저 프로필 보기
     const profile_image = document.getElementById("profile_image")
@@ -92,7 +91,7 @@ window.onload = async function loadProfile() {
     // 프로필 유저와 로그인 유저가 같으면 수정하기 버튼 노출
     if (user_id===profile_id) {
         const profile_edit_btn = document.getElementById("profile_edit_btn")
-        profile_edit_btn.setAttribute("style", "display:block")
+        profile_edit_btn.setAttribute("style", "display:block;")
 
         const profile_edit_page = document.getElementById("profile_edit_page")
         profile_edit_page.setAttribute("href", `../users/profile_edit.html?id=${user_id}`)
@@ -172,7 +171,6 @@ async function profileEdit() {
         method:"GET"
     })
     response_json = await response.json()
-    console.log(response_json)
 
     const email = response_json["가입정보"]["email"]
     const password = response_json["가입정보"]["password"]
@@ -275,6 +273,16 @@ async function profileEdit() {
             alert("입력되지 않았습니다. 취소하시려면 뒤로가기 버튼을 눌러주세요.")
         }
     }
+}
 
-
+// 탈퇴하기 기능
+async function withdRaw() {
+    const response = await fetch('http://127.0.0.1:8000/users/withdraw/', {
+        headers:{
+            'Authorization': 'Bearer ' + localStorage.getItem("access"),
+            'content-type':'application/json',
+        },    
+        method:"DELETE"
+    })
+    location.href = '../users/login.html'
 }
