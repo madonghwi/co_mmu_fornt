@@ -54,3 +54,6 @@ async function handleLogin() {
         location.href = '/templates/main.html';
     }
 }
+function redirectToSignup() {
+    window.location.href = "/templates/users/signup.html";
+  }
