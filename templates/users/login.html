@@ -25,21 +25,21 @@
                     <label for="email">
                         <i class="bi bi-person" id="id_cell"></i> 
                     </label>
-                    <input type="email" name="email" id="email" placeholder="아이디">
+                    <input type="email" name="email" id="email" placeholder="ID">
                 </div>
                 <div class="password_input">
                     <label for="password">
                         <i class="bi bi-lock" id="password_cell"></i>
                     </label>
-                    <input type="password" name="password" id="password" placeholder="비밀번호">
+                    <input type="password" name="password" id="password" placeholder="Password">
                 </div>
             </div>
             <div class="login_btn">
                 <button type="button" onclick="handleLogin()">로그인</button>
-                <!-- 회원가입 연결 필요 -->
-                <button type="button">회원가입</button>
             </div>
-    
+            <div>
+                <a href="/templates/users/signup.html" class="link-success">회원가입 하러가기</a>
+            </div>
         </form>
     </main>
 
