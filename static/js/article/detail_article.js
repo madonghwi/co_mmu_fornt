@@ -282,10 +282,8 @@ async function handleEdit() {
 }
 
 async function handleArticleDelete() {
-    console.log("삭제버튼")
     const urlParams = new URL(location.href).searchParams;
     const article_id = urlParams.get('id');
-    console.log("article_id : " + article_id)
 
     const response = await fetch(`http://127.0.0.1:8000/articles/${article_id}/`, {
         headers: {
@@ -294,4 +292,14 @@ async function handleArticleDelete() {
         method:"DELETE",
     })
     location.href='../main.html'
+}
+
+async function handleRead() {
+    const urlParams = new URL(location.href).searchParams;
+    const article_id = urlParams.get('id');
+
+    const response = await fetch('http://127.0.0.1:8000/articles/tts/'+article_id+'/', {
+        method:"GET"
+    })
+    response_json = await response.json()
 }

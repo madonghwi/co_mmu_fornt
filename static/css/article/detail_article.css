@@ -86,6 +86,35 @@
     background-color: rgb(120, 231, 234);
 }
 
+.btn_box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.read_content {
+    align-content: center;
+    flex-wrap: wrap;
+    display: flex;
+    margin-left: 50px;
+}
+
+.read_content button {
+    font-family: inherit;
+    font-size: inherit;
+    background-color: inherit;
+    height: 30px;
+    margin-left: 12px;
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+}
+
+.read_content button:hover {
+    cursor: pointer;
+    color: rgb(11, 11, 11);
+    background-color: rgb(120, 231, 234);
+}
+
 .article_controll_btn {
     display: flex;
     justify-content: flex-end;
