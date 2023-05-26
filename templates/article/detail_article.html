@@ -25,7 +25,8 @@
     <header></header>
     <main>
         <section class="articles_container">
-            <div id="article_image" class="article_image"></div>
+            <div id="article_image" class="article_image">
+            </div>
             <div class="article_text">
                 <div class="article_title">
                     <div class="article_title_section">
@@ -52,6 +53,12 @@
             <div class="comment_form">
                 <input type="text" id="comment">
                 <button type="button" onclick="handlecomment()">댓글 작성하기</button>
+            </div>
+        </section>
+        <section>
+            <div class="article_controll_btn">
+                <button id="article_edit_btn" type="button" onclick="handleArticleEdit()">수정하기</button>
+                <button id="article_delete_btn" type="button" onclick="handleArticleDelete()">삭제하기</button>
             </div>
         </section>
         <hr>

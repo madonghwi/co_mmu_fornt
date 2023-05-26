@@ -1,24 +1,39 @@
-<body>
-    <header class="header-nav">
-        <button type="button" onclick="location.href='/templates/main.html'">홈페이지</button>
-        <div>
-            <button>
-                <a href="#side-drawer">
-                    <i class="bi bi-search"></i>
-                </a>
-            </button>
-            <button onclick="location.href='/templates/article/create_article.html'">글쓰기</button>
-            <button onclick="myPage()">마이 페이지</button>
-        </div>
-        <aside id="side-drawer">
-            <nav>
-                <input type="text" id="search" placeholder="검색">
-                <div>
-                    <button type="button" onclick="handleSearch()">검색</button>
-                    <button type="button" onclick="history.back()">취소</button>
-                </div>
-            </nav>
-        </aside>
-    </header>
-</body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<html>
+    <body>
+        <header class="header-nav">
+            <button type="button" onclick="location.href='/templates/main.html'">홈페이지</button>
+            <div class="nav_button">
+                <button>
+                    <a href="#side-drawer">
+                        <i class="bi bi-search"></i>
+                    </a>
+                </button>
+                <button id="write_btn" onclick="location.href='/templates/article/create_article.html'" style="display: flex;">글쓰기</button>
+                <button id="mypage_btn" onclick="myPage()" style="display: flex;">마이 페이지</button>
+                <button id="logout_btn" onclick="handleLogout()" style="display: flex;">로그아웃</button>
+
+                <button type="button" onclick="location.href='/templates/users/login.html'" id="login_btn" style="display: none;">로그인</button>
+                <button type="button" onclick="location.href='/templates/users/signup.html'" id="sign_btn" style="display: none;">회원가입</button>
+            </div>
+            <aside id="side-drawer">
+                <nav>
+                    <input type="text" id="search" placeholder="검색">
+                    <div>
+                        <button type="button" onclick="handleSearch()">검색</button>
+                        <button type="button" onclick="history.back()">취소</button>
+                    </div>
+                </nav>
+            </aside>
+        </header>
+    </body>
+    <script src="/static/js/nav.js"></script>
 </html>
