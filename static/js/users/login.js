@@ -51,3 +51,6 @@ async function handleLogin() {
     // 로그인 후 이동 경로 수정 필요
     location.href = '/templates/main.html';
 }
+function redirectToSignup() {
+    window.location.href = "/templates/users/signup.html";
+  }
