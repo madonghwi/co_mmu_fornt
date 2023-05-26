@@ -37,17 +37,20 @@ async function handleLogin() {
         })
     })
     const response_json = await response.json()
-
-    localStorage.setItem("access", response_json.access);
-    localStorage.setItem("refresh", response_json.refresh);
-
-    const base64Url = response_json.access.split('.')[1];
-    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-    const jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
-        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-    }).join(''));
-
-    localStorage.setItem("payload", jsonPayload);
-    // 로그인 후 이동 경로 수정 필요
-    location.href = '/templates/main.html';
+    if (response_json.detail==="지정된 자격 증명에 해당하는 활성화된 사용자를 찾을 수 없습니다") {
+        alert("비활성화 또는 탈퇴된 회원입니다. 다른 아이디로 로그인해주세요.")
+    }
+    else {
+        localStorage.setItem("access", response_json.access);
+        localStorage.setItem("refresh", response_json.refresh);
+    
+        const base64Url = response_json.access.split('.')[1];
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        const jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+    
+        localStorage.setItem("payload", jsonPayload);
+        location.href = '/templates/main.html';
+    }
 }

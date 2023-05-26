@@ -187,12 +187,22 @@ a {
     margin: 18px;
 }
 
+.withdRaw {
+    background-color: brown;
+    color: aliceblue;
+}
+
 .edit_profile_btn button {
     font-family: inherit;
     font-size: 18px;
-    background-color: inherit;
     border-radius: 8px;
     text-align: center;
     padding: 4px 8px 2px 8px;
     margin-left: 18px;
+}
+
+.edit_profile_btn button:hover {
+    cursor: pointer;
+    background-color: rgb(45, 45, 45);
+    color: aliceblue;
 }

@@ -34,6 +34,15 @@ a {
     background-color: aliceblue;
 }
 
+.nav_button {
+    display: flex;
+}
+
+.nav_button button {
+    display: flex;
+    align-items: end;
+}
+
 #side-drawer {
     width: 100%;
     height: 100%;
